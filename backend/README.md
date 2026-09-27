@@ -1,4 +1,4 @@
-# JalDrishti Backend — SIH PS15
+# Sangam Backend — SIH PS15
 
 FastAPI + PostGIS + Celery/Redis service for the Watershed Geo-Coded Image
 Analysis system. Implements the target architecture in `../PROJECT_CONTEXT.md`

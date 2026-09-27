@@ -105,7 +105,7 @@ export default function MapExplorer() {
             <Polyline
               key={i}
               positions={d.path.map(([lng, lat]) => [lat, lng])}
-              pathOptions={{ color: "#38bdf8", weight: d.order + 0.5, opacity: 0.85 }}
+              pathOptions={{ color: "#4a9bd8", weight: d.order + 0.5, opacity: 0.85 }}
             />
           ))}
 
@@ -121,7 +121,7 @@ export default function MapExplorer() {
 
       {/* ── Left control panel ── */}
       <div className="absolute top-4 left-4 z-[1000] w-[240px] space-y-3">
-        <div className="rounded-2xl bg-ink-950/90 border border-white/[0.08] shadow-panel backdrop-blur p-3">
+        <div className="rounded-2xl glass-strong shadow-panel p-3">
           <div className="text-[11px] font-semibold text-slate-400 mb-2">BASEMAP</div>
           <div className="flex gap-1.5 mb-3">
             {Object.entries(BASES).map(([k, b]) => (
@@ -163,7 +163,7 @@ export default function MapExplorer() {
 
       {/* ── Right legend panel ── */}
       <div className="absolute top-4 right-4 z-[1000] w-[210px]">
-        <div className="rounded-2xl bg-ink-950/90 border border-white/[0.08] shadow-panel backdrop-blur p-3.5 space-y-3">
+        <div className="rounded-2xl glass-strong shadow-panel p-3.5 space-y-3">
           <div className="flex items-center justify-between">
             <span className="text-[11px] font-semibold text-slate-300">LEGEND</span>
             <Badge tone="blue">{EPOCHS[epochIdx].id} · {EPOCHS[epochIdx].label}</Badge>
@@ -202,7 +202,7 @@ export default function MapExplorer() {
 
       {/* ── Bottom time slider ── */}
       <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-[1000] w-[560px] max-w-[calc(100%-32px)]">
-        <div className="rounded-2xl bg-ink-950/90 border border-white/[0.08] shadow-panel backdrop-blur px-4 py-3">
+        <div className="rounded-2xl glass-strong shadow-panel px-4 py-3">
           <div className="flex items-center justify-between mb-2">
             <span className="text-[11px] font-semibold text-slate-400">TEMPORAL SLIDER · T0–T5</span>
             <span className="text-[11px] text-slate-300">

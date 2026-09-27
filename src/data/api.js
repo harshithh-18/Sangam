@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────────────────────────
-// JalDrishti API client (Phase 1).
+// Sangam API client (Phase 1).
 //
 // The UI ships with bundled synthetic data (demoData.js) so it always renders
 // for screenshots/offline demos. To run against the live FastAPI backend,
@@ -36,7 +36,7 @@ export async function withApi(fetcher, fallback) {
   try {
     return await fetcher();
   } catch (e) {
-    console.warn("[JalDrishti] API unavailable, using bundled demo data:", e.message);
+    console.warn("[Sangam] API unavailable, using bundled demo data:", e.message);
     return fallback;
   }
 }

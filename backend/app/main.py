@@ -1,4 +1,4 @@
-"""JalDrishti FastAPI application (SIH PS15)."""
+"""Sangam FastAPI application (SIH PS15)."""
 from __future__ import annotations
 
 from fastapi import FastAPI

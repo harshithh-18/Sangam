@@ -1,4 +1,4 @@
-# ── JalDrishti backend (SIH PS15) — pinned dependencies ──
+# ── Sangam backend (SIH PS15) — pinned dependencies ──
 # API / server
 fastapi==0.115.6
 uvicorn[standard]==0.34.0

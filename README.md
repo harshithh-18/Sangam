@@ -1,4 +1,4 @@
-# JalDrishti — Watershed Intelligence Platform (SIH PS15)
+# Sangam — Watershed Intelligence Platform (SIH PS15)
 
 **Phase-1 demonstration UI** for the Watershed Geo-Coded Image Analysis system.
 Built to match the target stack (React + Leaflet + Tailwind + Recharts) so it can be

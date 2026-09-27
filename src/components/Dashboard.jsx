@@ -56,8 +56,8 @@ export default function Dashboard() {
           <div className="flex items-center gap-4">
             <div className="relative h-[150px] w-[150px] shrink-0">
               <ResponsiveContainer>
-                <RadialBarChart innerRadius="72%" outerRadius="100%" data={[{ v: health, fill: "#22b880" }]} startAngle={90} endAngle={-270}>
-                  <RadialBar background={{ fill: "#16233c" }} dataKey="v" cornerRadius={20} />
+                <RadialBarChart innerRadius="72%" outerRadius="100%" data={[{ v: health, fill: "#37a854" }]} startAngle={90} endAngle={-270}>
+                  <RadialBar background={{ fill: "#0f2846" }} dataKey="v" cornerRadius={20} />
                 </RadialBarChart>
               </ResponsiveContainer>
               <div className="absolute inset-0 grid place-items-center">
@@ -94,20 +94,20 @@ export default function Dashboard() {
               <AreaChart data={timeSeries} margin={{ top: 5, right: 8, left: -18, bottom: 0 }}>
                 <defs>
                   <linearGradient id="gv" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#22b880" stopOpacity={0.5} />
-                    <stop offset="100%" stopColor="#22b880" stopOpacity={0} />
+                    <stop offset="0%" stopColor="#37a854" stopOpacity={0.5} />
+                    <stop offset="100%" stopColor="#37a854" stopOpacity={0} />
                   </linearGradient>
                   <linearGradient id="gw" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#38bdf8" stopOpacity={0.4} />
-                    <stop offset="100%" stopColor="#38bdf8" stopOpacity={0} />
+                    <stop offset="0%" stopColor="#4a9bd8" stopOpacity={0.4} />
+                    <stop offset="100%" stopColor="#4a9bd8" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <CartesianGrid stroke={grid} vertical={false} />
                 <XAxis dataKey="label" {...axis} tickLine={false} axisLine={false} />
                 <YAxis {...axis} tickLine={false} axisLine={false} />
                 <Tooltip content={<ChartTip />} />
-                <Area type="monotone" dataKey="ndvi" name="NDVI" stroke="#22b880" strokeWidth={2.5} fill="url(#gv)" />
-                <Area type="monotone" dataKey="ndwi" name="NDWI" stroke="#38bdf8" strokeWidth={2.5} fill="url(#gw)" />
+                <Area type="monotone" dataKey="ndvi" name="NDVI" stroke="#37a854" strokeWidth={2.5} fill="url(#gv)" />
+                <Area type="monotone" dataKey="ndwi" name="NDWI" stroke="#4a9bd8" strokeWidth={2.5} fill="url(#gw)" />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -125,8 +125,8 @@ export default function Dashboard() {
                 <XAxis dataKey="name" {...axis} tickLine={false} axisLine={false} interval={0} angle={-12} textAnchor="end" height={50} />
                 <YAxis {...axis} tickLine={false} axisLine={false} />
                 <Tooltip content={<ChartTip />} cursor={{ fill: "rgba(255,255,255,0.03)" }} />
-                <Bar dataKey="T0" name="T0 (2021)" fill="#3a5170" radius={[4, 4, 0, 0]} />
-                <Bar dataKey="T5" name="T5 (2025)" fill="#22b880" radius={[4, 4, 0, 0]} />
+                <Bar dataKey="T0" name="T0 (2021)" fill="#27547f" radius={[4, 4, 0, 0]} />
+                <Bar dataKey="T5" name="T5 (2025)" fill="#37a854" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>

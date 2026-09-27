@@ -11,11 +11,11 @@ export default function App() {
   const [view, setView] = useState("dashboard");
 
   return (
-    <div className="flex h-screen overflow-hidden bg-ink-950">
+    <div className="app-bg flex h-screen overflow-hidden">
       <Sidebar view={view} setView={setView} />
       <div className="flex-1 flex flex-col min-w-0">
         <TopBar view={view} />
-        <main className="flex-1 overflow-y-auto">
+        <main key={view} className="flex-1 overflow-y-auto animate-fade-in">
           {view === "dashboard" && <Dashboard />}
           {view === "map" && <MapExplorer />}
           {view === "change" && <ChangeDetection />}

@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────────────────────────
-// JalDrishti — DEMO DATA (Phase 1)
+// Sangam — DEMO DATA (Phase 1)
 // All figures below are synthetic, generated for UI demonstration only.
 // They are NOT derived from official DRISHTI/SRISHTI data. See PROJECT_CONTEXT.md.
 // Deterministic pseudo-random generation keeps the visuals stable across renders.
@@ -225,12 +225,12 @@ export const drainage = [
 
 // ── Field-photo interventions (DRISHTI-style points) ──
 const IV_TYPES = {
-  check_dam: { label: "Check Dam", color: "#2563eb", icon: "🌊" },
-  farm_pond: { label: "Farm Pond", color: "#0ea5e9", icon: "💧" },
-  afforestation: { label: "Afforestation", color: "#16a34a", icon: "🌳" },
-  contour_bund: { label: "Contour Bunding", color: "#a16207", icon: "⛰" },
+  check_dam: { label: "Check Dam", color: "#2379c4", icon: "🌊" },
+  farm_pond: { label: "Farm Pond", color: "#3fb2c1", icon: "💧" },
+  afforestation: { label: "Afforestation", color: "#37a854", icon: "🌳" },
+  contour_bund: { label: "Contour Bunding", color: "#ea8b1f", icon: "⛰" },
   percolation_tank: { label: "Percolation Tank", color: "#7c3aed", icon: "🛢" },
-  nala_revetment: { label: "Nala Revetment", color: "#0891b2", icon: "🧱" },
+  nala_revetment: { label: "Nala Revetment", color: "#1a92a4", icon: "🧱" },
   loose_boulder: { label: "Loose Boulder Structure", color: "#b45309", icon: "🪨" },
 };
 export const IV_TYPE_META = IV_TYPES;

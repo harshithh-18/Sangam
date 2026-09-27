@@ -12,21 +12,21 @@ const TITLES = {
 export default function TopBar({ view }) {
   const [title, sub] = TITLES[view] || ["", ""];
   return (
-    <header className="h-16 shrink-0 px-6 flex items-center justify-between border-b border-white/[0.06] bg-ink-950/60 backdrop-blur">
+    <header className="h-16 shrink-0 px-6 flex items-center justify-between border-b border-white/[0.08] glass">
       <div>
-        <h1 className="text-[17px] font-bold text-slate-50 leading-tight">{title}</h1>
-        <p className="text-[11px] text-slate-400">{sub}</p>
+        <h1 className="text-[17px] font-bold text-white leading-tight">{title}</h1>
+        <p className="text-[11px] text-slate-300/70">{sub}</p>
       </div>
       <div className="flex items-center gap-3">
-        <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-ink-900/80 border border-white/[0.06]">
-          <span className="h-2 w-2 rounded-full bg-brand-400 live-dot" />
-          <span className="text-[11px] text-slate-300 font-medium">Pipeline live</span>
+        <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full glass">
+          <span className="h-2 w-2 rounded-full bg-orange-400 live-dot" />
+          <span className="text-[11px] text-slate-200 font-medium">Pipeline live</span>
         </div>
         <div className="hidden lg:block text-right">
-          <div className="text-[11px] text-slate-400">CRS</div>
-          <div className="text-[11px] font-mono text-slate-300">{PILOT.crs_metric}</div>
+          <div className="text-[11px] text-slate-400/70">CRS</div>
+          <div className="text-[11px] font-mono text-slate-200">{PILOT.crs_metric}</div>
         </div>
-        <div className="h-9 w-9 rounded-full bg-gradient-to-br from-aqua-500 to-brand-500 grid place-items-center text-white text-sm font-semibold">
+        <div className="h-9 w-9 rounded-full bg-gradient-to-br from-aqua-500 via-teal-500 to-brand-500 grid place-items-center text-white text-sm font-semibold ring-2 ring-white/10">
           AN
         </div>
       </div>

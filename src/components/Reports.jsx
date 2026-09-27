@@ -65,11 +65,15 @@ export default function Reports() {
         <div className="p-6">
           <div className="mx-auto max-w-[640px] bg-white text-slate-800 rounded-lg shadow-panel overflow-hidden">
             {/* letterhead */}
-            <div className="bg-gradient-to-r from-brand-700 to-aqua-600 text-white px-7 py-5">
+            <div className="bg-gradient-to-r from-[#0c2138] via-[#1c62a3] to-[#1a92a4] text-white px-7 py-5">
               <div className="flex items-center justify-between">
-                <div>
-                  <div className="text-[10px] tracking-widest opacity-80">INTEGRATED WATERSHED MANAGEMENT PROGRAMME</div>
-                  <div className="text-xl font-bold">Watershed Status Report</div>
+                <div className="flex items-center gap-3">
+                  <img src="/brand/logo-mark.png" alt="Sangam" className="h-11 w-11 object-contain bg-white/95 rounded-lg p-1" />
+                  <div>
+                    <div className="text-[10px] tracking-widest opacity-80">SANGAM · WATERSHED GEO-INTELLIGENCE</div>
+                    <div className="text-xl font-bold">Watershed Status Report</div>
+                    <div className="text-[9px] opacity-70">Integrated Watershed Management Programme (IWMP)</div>
+                  </div>
                 </div>
                 <div className="text-right text-[11px] opacity-90">
                   <div className="font-mono">{PILOT.code}</div>
@@ -144,7 +148,7 @@ export default function Reports() {
               </div>
 
               <div className="flex justify-between text-[9px] text-slate-400 border-t border-slate-200 pt-2">
-                <span>Generated {EPOCHS[5].date} · JalDrishti Phase-1</span>
+                <span>Generated {EPOCHS[5].date} · Sangam Phase-1</span>
                 <span>Page 1 of 6</span>
               </div>
             </div>

@@ -1,9 +1,9 @@
 {
-  "name": "jaldrishti-watershed",
+  "name": "sangam-watershed",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "JalDrishti — Watershed Geo-Coded Image Analysis (SIH PS15) — Phase 1 demo UI",
+  "description": "Sangam — Watershed Geo-Coded Image Analysis (SIH PS15) — Phase 1 demo UI",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

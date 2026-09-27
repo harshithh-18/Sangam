@@ -37,7 +37,7 @@ function Overlays() {
       <polygon points={ring} fill="none" stroke="#eafaf3" strokeWidth="2" strokeDasharray="6 4" />
       {drainage.map((d, i) => (
         <polyline key={i} points={d.path.map(([lng, lat]) => proj(lng, lat).join(",")).join(" ")}
-          fill="none" stroke="#38bdf8" strokeWidth={d.order + 0.5} opacity="0.8" />
+          fill="none" stroke="#4a9bd8" strokeWidth={d.order + 0.5} opacity="0.8" />
       ))}
     </g>
   );
@@ -92,7 +92,7 @@ export default function ChangeDetection() {
 
   const changeBars = [
     { name: "Veg. gain", ha: stats.gainHa, color: "#0f9d6a" },
-    { name: "No change", ha: stats.stableHa, color: "#3a5170" },
+    { name: "No change", ha: stats.stableHa, color: "#27547f" },
     { name: "Veg. loss", ha: stats.lossHa, color: "#c1121f" },
   ];
 
@@ -115,7 +115,7 @@ export default function ChangeDetection() {
         <div
           ref={wrapRef}
           className="relative select-none mx-5 mb-4 rounded-xl overflow-hidden border border-white/[0.08]"
-          style={{ aspectRatio: `${W}/${H}`, background: "#0b1526" }}
+          style={{ aspectRatio: `${W}/${H}`, background: "#081a30" }}
         >
           <svg viewBox={`0 0 ${W} ${H}`} className="absolute inset-0 h-full w-full">
             <defs>
