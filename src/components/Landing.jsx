@@ -61,7 +61,15 @@ export default function Landing({ onEnter }) {
       {/* ── Top nav ── */}
       <header className="sticky top-0 z-30 bg-white/90 dark:bg-black/60 backdrop-blur border-b border-slate-200">
         <div className="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
-          <img src="/brand/logo-horizontal.png" alt="Sangam" className="h-8 object-contain dark:brightness-0 dark:invert" />
+          <div className="flex items-center gap-2.5">
+            <img src="/brand/logo-mark.png" alt="Sangam" className="h-9 w-9 object-contain" />
+            <div className="leading-none">
+              <div className="text-[19px] font-extrabold tracking-tight text-slate-900">Sangam</div>
+              <div className="text-[8px] tracking-[0.17em] text-teal-600 mt-0.5">
+                WATERSHED GEO-INTELLIGENCE
+              </div>
+            </div>
+          </div>
           <nav className="hidden md:flex items-center gap-1">
             {MODULES.map((m) => (
               <button
