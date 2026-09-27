@@ -3,3 +3,10 @@ dist
 .DS_Store
 *.local
 .vite
+
+backend/.venv
+backend/__pycache__
+**/__pycache__
+*.pyc
+backend/.pytest_cache
+.env

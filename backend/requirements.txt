@@ -1,0 +1,30 @@
+# ── JalDrishti backend (SIH PS15) — pinned dependencies ──
+# API / server
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+python-multipart==0.0.20
+pydantic==2.10.4
+pydantic-settings==2.7.1
+
+# Database / ORM (PostGIS)
+SQLAlchemy==2.0.36
+GeoAlchemy2==0.17.0
+psycopg2-binary==2.9.10
+alembic==1.14.0
+
+# Async jobs
+celery==5.4.0
+redis==5.2.1
+
+# Geospatial / science
+numpy==2.2.1
+shapely==2.0.6
+pyproj==3.7.0
+rasterio==1.4.3
+geopandas==1.0.1
+rasterstats==0.20.0
+Pillow==11.1.0
+
+# Test / dev
+pytest==8.3.4
+httpx==0.28.1
