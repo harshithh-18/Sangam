@@ -16,7 +16,7 @@ export default function App() {
   }
 
   return (
-    <div className="flex h-screen overflow-hidden bg-[#eef3f8]">
+    <div className="flex h-screen overflow-hidden page-bg">
       <Sidebar view={view} setView={setView} onHome={() => setView("landing")} />
       <div className="flex-1 flex flex-col min-w-0">
         <TopBar view={view} onHome={() => setView("landing")} />

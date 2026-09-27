@@ -63,7 +63,7 @@ export default function Reports() {
           </div>
         </div>
         <div className="p-6">
-          <div className="mx-auto max-w-[640px] bg-white text-slate-800 rounded-lg shadow-panel overflow-hidden">
+          <div className="sangam-paper mx-auto max-w-[640px] bg-white text-slate-800 rounded-lg shadow-panel overflow-hidden">
             {/* letterhead */}
             <div className="bg-gradient-to-r from-[#0c2138] via-[#1c62a3] to-[#1a92a4] text-white px-7 py-5">
               <div className="flex items-center justify-between">

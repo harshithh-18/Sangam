@@ -20,6 +20,13 @@
     />
   </head>
   <body>
+    <script>
+      // Apply saved theme before paint to avoid a flash.
+      try {
+        var t = localStorage.getItem("sangam-theme");
+        if (t === "dark") document.documentElement.classList.add("dark");
+      } catch (e) {}
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

@@ -1,5 +1,6 @@
 import React from "react";
 import { PILOT, KPIS, healthModel } from "../data/demoData";
+import ThemeToggle from "./ThemeToggle";
 
 const MODULES = [
   {
@@ -56,11 +57,11 @@ const toneBg = {
 
 export default function Landing({ onEnter }) {
   return (
-    <div className="h-screen overflow-y-auto bg-[#eef3f8]">
+    <div className="h-screen overflow-y-auto page-bg">
       {/* ── Top nav ── */}
-      <header className="sticky top-0 z-30 bg-white/90 backdrop-blur border-b border-slate-200">
+      <header className="sticky top-0 z-30 bg-white/90 dark:bg-black/60 backdrop-blur border-b border-slate-200">
         <div className="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
-          <img src="/brand/logo-horizontal.png" alt="Sangam" className="h-8 object-contain" />
+          <img src="/brand/logo-horizontal.png" alt="Sangam" className="h-8 object-contain dark:brightness-0 dark:invert" />
           <nav className="hidden md:flex items-center gap-1">
             {MODULES.map((m) => (
               <button
@@ -72,12 +73,15 @@ export default function Landing({ onEnter }) {
               </button>
             ))}
           </nav>
-          <button
-            onClick={() => onEnter("dashboard")}
-            className="px-4 py-2 rounded-lg bg-teal-600 hover:bg-teal-700 text-white text-[13px] font-semibold transition shadow-sm"
-          >
-            Open Platform
-          </button>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <button
+              onClick={() => onEnter("dashboard")}
+              className="px-4 py-2 rounded-lg bg-teal-600 hover:bg-teal-700 text-white text-[13px] font-semibold transition shadow-sm"
+            >
+              Open Platform
+            </button>
+          </div>
         </div>
       </header>
 
@@ -85,14 +89,14 @@ export default function Landing({ onEnter }) {
       <section className="hero-bg">
         <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
           <div className="max-w-2xl animate-fade-up">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/85 border border-slate-200 text-[12px] font-semibold text-teal-700 shadow-sm">
-              <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> SIH 2025 · Problem Statement PS15
-            </span>
-            <h1 className="mt-5 text-4xl md:text-5xl font-extrabold text-slate-900 leading-[1.08] tracking-tight">
+            <h1 className="text-6xl md:text-8xl font-extrabold tracking-tight leading-none sangam-gradient">
+              SANGAM
+            </h1>
+            <h2 className="mt-4 text-2xl md:text-4xl font-extrabold text-slate-900 leading-[1.1] tracking-tight">
               Watershed intelligence <br className="hidden md:block" />
               where <span className="text-teal-600">field</span> meets{" "}
               <span className="text-brand-600">satellite</span>.
-            </h1>
+            </h2>
             <p className="mt-5 text-[15px] md:text-base text-slate-700 leading-relaxed max-w-xl">
               <span className="font-semibold">Sangam</span> joins geo-coded DRISHTI field photographs
               with multi-date satellite analysis to turn scattered documentation into explainable,
@@ -120,7 +124,7 @@ export default function Landing({ onEnter }) {
                 [`${healthModel.score}/100`, "watershed health"],
                 [KPIS.photos, "field interventions"],
               ].map(([v, l]) => (
-                <div key={l} className="bg-white/85 border border-slate-200 rounded-xl px-4 py-3 shadow-sm">
+                <div key={l} className="bg-white/85 dark:bg-white/5 border border-slate-200 rounded-xl px-4 py-3 shadow-sm">
                   <div className="text-xl font-bold text-slate-900">{v}</div>
                   <div className="text-[11px] text-slate-500">{l}</div>
                 </div>
@@ -159,7 +163,7 @@ export default function Landing({ onEnter }) {
               </span>
             </button>
           ))}
-          <div className="card p-6 bg-gradient-to-br from-teal-600 to-brand-600 border-0 text-white flex flex-col justify-center">
+          <div className="rounded-2xl shadow-card p-6 bg-gradient-to-br from-teal-600 to-brand-600 text-white flex flex-col justify-center">
             <div className="text-lg font-bold">Ready to dive in?</div>
             <p className="text-[13px] text-white/85 mt-1">Jump straight into the live health dashboard.</p>
             <button

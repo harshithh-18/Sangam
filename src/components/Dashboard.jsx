@@ -9,8 +9,8 @@ import {
   healthModel, recentUploads, jobs, microWatersheds, provenance,
 } from "../data/demoData";
 
-const axis = { stroke: "#94a3b8", fontSize: 11 };
-const grid = "#e2e8f0";
+const axis = { stroke: "var(--chart-axis)", fontSize: 11 };
+const grid = "var(--chart-grid)";
 
 function ChartTip({ active, payload, label }) {
   if (!active || !payload?.length) return null;
@@ -57,7 +57,7 @@ export default function Dashboard() {
             <div className="relative h-[150px] w-[150px] shrink-0">
               <ResponsiveContainer>
                 <RadialBarChart innerRadius="72%" outerRadius="100%" data={[{ v: health, fill: "#37a854" }]} startAngle={90} endAngle={-270}>
-                  <RadialBar background={{ fill: "#eef2f6" }} dataKey="v" cornerRadius={20} />
+                  <RadialBar background={{ fill: "var(--chart-track)" }} dataKey="v" cornerRadius={20} />
                 </RadialBarChart>
               </ResponsiveContainer>
               <div className="absolute inset-0 grid place-items-center">

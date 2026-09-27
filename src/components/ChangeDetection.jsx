@@ -114,8 +114,8 @@ export default function ChangeDetection() {
         </div>
         <div
           ref={wrapRef}
-          className="relative select-none mx-5 mb-4 rounded-xl overflow-hidden border border-slate-200"
-          style={{ aspectRatio: `${W}/${H}`, background: "#e8eef4" }}
+          className="relative select-none mx-5 mb-4 rounded-xl overflow-hidden border border-slate-200 bg-slate-100"
+          style={{ aspectRatio: `${W}/${H}` }}
         >
           <svg viewBox={`0 0 ${W} ${H}`} className="absolute inset-0 h-full w-full">
             <defs>
@@ -173,9 +173,9 @@ export default function ChangeDetection() {
           <div className="h-[130px]">
             <ResponsiveContainer>
               <BarChart data={changeBars} layout="vertical" margin={{ left: 8, right: 12, top: 0, bottom: 0 }}>
-                <CartesianGrid stroke="#e2e8f0" horizontal={false} />
-                <XAxis type="number" stroke="#94a3b8" fontSize={11} tickLine={false} axisLine={false} />
-                <YAxis type="category" dataKey="name" stroke="#94a3b8" fontSize={11} width={70} tickLine={false} axisLine={false} />
+                <CartesianGrid stroke="var(--chart-grid)" horizontal={false} />
+                <XAxis type="number" stroke="var(--chart-axis)" fontSize={11} tickLine={false} axisLine={false} />
+                <YAxis type="category" dataKey="name" stroke="var(--chart-axis)" fontSize={11} width={70} tickLine={false} axisLine={false} />
                 <Tooltip cursor={{ fill: "rgba(15,23,42,0.04)" }} contentStyle={{ background: "#ffffff", border: "1px solid #e5eaf0", borderRadius: 8, fontSize: 12, color: "#1f2d3d" }} />
                 <Bar dataKey="ha" radius={[0, 4, 4, 0]}>
                   {changeBars.map((b) => <Cell key={b.name} fill={b.color} />)}

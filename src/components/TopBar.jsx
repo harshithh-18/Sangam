@@ -1,5 +1,6 @@
 import React from "react";
 import { PILOT } from "../data/demoData";
+import ThemeToggle from "./ThemeToggle";
 
 const TITLES = {
   dashboard: ["Watershed Health Dashboard", "Composite health, indices and field evidence at a glance"],
@@ -36,6 +37,7 @@ export default function TopBar({ view, onHome }) {
           <div className="text-[11px] text-slate-400">CRS</div>
           <div className="text-[11px] font-mono text-slate-600">{PILOT.crs_metric}</div>
         </div>
+        <ThemeToggle />
         <div className="h-9 w-9 rounded-full bg-gradient-to-br from-aqua-500 via-teal-500 to-brand-500 grid place-items-center text-white text-sm font-semibold">
           AN
         </div>
