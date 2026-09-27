@@ -6,12 +6,12 @@
 
 | Item | Status |
 | --- | --- |
-| Repository | Newly initialized/empty; no application code, datasets, environment, or deployment files exist yet. |
+| Repository | **Phase-1 built.** Frontend (React/Leaflet/Tailwind, `src/`) + backend (FastAPI/PostGIS/Celery, `backend/`) run end-to-end on **synthetic demo data**. See `README.md`, `backend/README.md`. |
 | Source reviewed | Pages **1–20** of the supplied 22-page design PDF were reviewed on 2026-09-26. Pages 21–22 were intentionally not used. |
-| Phase | Planning / foundation not started. |
-| Validated access | None. Access to DRISHTI, SRISHTI/Bhuvan, GEE, and any official datasets is **not yet verified**. |
-| Models | None trained or selected in code. All model names below are proposals. |
-| Immediate next milestone | Prove one end-to-end demo path: a watershed boundary + sample field photo(s) + two satellite dates → indices/change result → map/dashboard. |
+| Phase | Phase-1 demo (screenshot-ready UI + working API skeleton) complete. Real data/model integration is the next phase. |
+| Validated access | Still **none**. DRISHTI, SRISHTI/Bhuvan, GEE, and official datasets remain unverified — all demo data is synthetic and labelled as such. |
+| Models | **None trained.** Photo classifier + LULC are stubbed with `TODO(next-phase)` markers; index/change/health math is real and unit-tested. |
+| Immediate next milestone | Swap synthetic inputs for one real pilot: ingest a real Sentinel-2 pair + consented photos, replace stubbed raster reads/classifier, validate the health weights. |
 
 ### Update protocol
 
@@ -378,6 +378,8 @@ Planned statistics: zonal mean NDVI/water area by micro-watershed, intervention 
 | --- | --- | --- |
 | 2026-09-26 | Created this context from pages 1–20 of `SIH PS4 — Watershed Geo-Coded Image Analysis Complete System Plan.pdf`. | Establishes scope and explicitly distinguishes the design proposal from validated requirements. |
 | 2026-09-26 | No technology, data source, model, or external integration has been implemented or verified. | Prevents subsequent workers from assuming the document describes existing system state. |
+| 2026-09-27 | Built Phase-1 frontend (React/Leaflet/Tailwind/Recharts, `src/`) for pitch screenshots. | Vertical UI slice: dashboard, map explorer, change swipe, interventions, reports. Synthetic data only. |
+| 2026-09-27 | Built Phase-1 backend (`backend/`): FastAPI v1, PostGIS models, Celery/Redis jobs, real index/change/health/EXIF/validation math (23 tests), docker-compose, seeder. | Establishes the reproducible `ingest→process→persist→serve` skeleton. Raster I/O + ML inference stubbed pending real data/models. Verified end-to-end against live PostGIS+Redis. |
 
 ## 12. Source boundary
 
