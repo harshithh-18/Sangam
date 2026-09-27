@@ -9,16 +9,16 @@ import {
   healthModel, recentUploads, jobs, microWatersheds, provenance,
 } from "../data/demoData";
 
-const axis = { stroke: "#5b6b82", fontSize: 11 };
-const grid = "#1c2b45";
+const axis = { stroke: "#94a3b8", fontSize: 11 };
+const grid = "#e2e8f0";
 
 function ChartTip({ active, payload, label }) {
   if (!active || !payload?.length) return null;
   return (
-    <div className="rounded-lg bg-ink-950 border border-white/10 px-3 py-2 shadow-panel">
+    <div className="rounded-lg bg-white border border-slate-200 px-3 py-2 shadow-panel">
       <div className="text-[11px] text-slate-400 mb-1">{label}</div>
       {payload.map((p) => (
-        <div key={p.name} className="text-[12px] text-slate-100 flex items-center gap-2">
+        <div key={p.name} className="text-[12px] text-slate-800 flex items-center gap-2">
           <span className="h-2 w-2 rounded-full" style={{ background: p.color || p.fill }} />
           {p.name}: <span className="font-semibold">{p.value}</span>
         </div>
@@ -57,13 +57,13 @@ export default function Dashboard() {
             <div className="relative h-[150px] w-[150px] shrink-0">
               <ResponsiveContainer>
                 <RadialBarChart innerRadius="72%" outerRadius="100%" data={[{ v: health, fill: "#37a854" }]} startAngle={90} endAngle={-270}>
-                  <RadialBar background={{ fill: "#0f2846" }} dataKey="v" cornerRadius={20} />
+                  <RadialBar background={{ fill: "#eef2f6" }} dataKey="v" cornerRadius={20} />
                 </RadialBarChart>
               </ResponsiveContainer>
               <div className="absolute inset-0 grid place-items-center">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-slate-50">{health}</div>
-                  <div className="text-[10px] text-brand-300 font-medium">▲ +{healthModel.delta} vs T0</div>
+                  <div className="text-3xl font-bold text-slate-900">{health}</div>
+                  <div className="text-[10px] text-brand-600 font-medium">▲ +{healthModel.delta} vs T0</div>
                 </div>
               </div>
             </div>
@@ -71,10 +71,10 @@ export default function Dashboard() {
               {healthModel.weights.map((w) => (
                 <div key={w.factor}>
                   <div className="flex justify-between text-[11px] mb-0.5">
-                    <span className="text-slate-300">{w.factor}</span>
+                    <span className="text-slate-600">{w.factor}</span>
                     <span className="text-slate-400 font-mono">×{w.weight}</span>
                   </div>
-                  <div className="h-1.5 rounded-full bg-ink-800 overflow-hidden">
+                  <div className="h-1.5 rounded-full bg-slate-200 overflow-hidden">
                     <div className="h-full rounded-full bg-gradient-to-r from-brand-500 to-aqua-500" style={{ width: `${w.contribution * 3.2}%` }} />
                   </div>
                 </div>
@@ -124,8 +124,8 @@ export default function Dashboard() {
                 <CartesianGrid stroke={grid} vertical={false} />
                 <XAxis dataKey="name" {...axis} tickLine={false} axisLine={false} interval={0} angle={-12} textAnchor="end" height={50} />
                 <YAxis {...axis} tickLine={false} axisLine={false} />
-                <Tooltip content={<ChartTip />} cursor={{ fill: "rgba(255,255,255,0.03)" }} />
-                <Bar dataKey="T0" name="T0 (2021)" fill="#27547f" radius={[4, 4, 0, 0]} />
+                <Tooltip content={<ChartTip />} cursor={{ fill: "rgba(15,23,42,0.04)" }} />
+                <Bar dataKey="T0" name="T0 (2021)" fill="#94a3b8" radius={[4, 4, 0, 0]} />
                 <Bar dataKey="T5" name="T5 (2025)" fill="#37a854" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
@@ -149,11 +149,11 @@ export default function Dashboard() {
             <div className="flex-1 space-y-1">
               {ivCounts.slice(0, 6).map((e) => (
                 <div key={e.key} className="flex items-center justify-between text-[11px]">
-                  <span className="flex items-center gap-1.5 text-slate-300">
+                  <span className="flex items-center gap-1.5 text-slate-600">
                     <span className="h-2.5 w-2.5 rounded-[3px]" style={{ background: e.color }} />
                     {e.name}
                   </span>
-                  <span className="font-semibold text-slate-200">{e.value}</span>
+                  <span className="font-semibold text-slate-700">{e.value}</span>
                 </div>
               ))}
             </div>
@@ -165,9 +165,9 @@ export default function Dashboard() {
         {/* Micro-watershed table */}
         <Card className="xl:col-span-2">
           <SectionTitle title="Micro-Watershed Scorecard" sub="Zonal statistics per sub-basin" />
-          <div className="overflow-hidden rounded-xl border border-white/[0.06]">
+          <div className="overflow-hidden rounded-xl border border-slate-200">
             <table className="w-full text-[12px]">
-              <thead className="bg-ink-850/60 text-slate-400">
+              <thead className="bg-slate-100 text-slate-400">
                 <tr>
                   {["Sub-basin", "Health", "Trend", "Mean NDVI", "Water (ha)", "Interventions"].map((h) => (
                     <th key={h} className="text-left font-semibold px-3 py-2">{h}</th>
@@ -176,25 +176,25 @@ export default function Dashboard() {
               </thead>
               <tbody>
                 {microWatersheds.map((m, i) => (
-                  <tr key={m.id} className={`${i % 2 ? "bg-ink-900/40" : ""} border-t border-white/[0.04]`}>
+                  <tr key={m.id} className={`${i % 2 ? "bg-slate-50" : ""} border-t border-slate-100`}>
                     <td className="px-3 py-2">
-                      <div className="text-slate-100 font-medium">{m.name}</div>
+                      <div className="text-slate-800 font-medium">{m.name}</div>
                       <div className="text-[10px] text-slate-500 font-mono">{m.id}</div>
                     </td>
                     <td className="px-3 py-2">
                       <div className="flex items-center gap-2">
-                        <div className="h-1.5 w-14 rounded-full bg-ink-800 overflow-hidden">
+                        <div className="h-1.5 w-14 rounded-full bg-slate-200 overflow-hidden">
                           <div className="h-full bg-gradient-to-r from-brand-500 to-aqua-500" style={{ width: `${m.health}%` }} />
                         </div>
-                        <span className="text-slate-200 font-semibold">{m.health}</span>
+                        <span className="text-slate-700 font-semibold">{m.health}</span>
                       </div>
                     </td>
-                    <td className={`px-3 py-2 font-medium ${m.trend >= 0 ? "text-brand-300" : "text-rose-300"}`}>
+                    <td className={`px-3 py-2 font-medium ${m.trend >= 0 ? "text-brand-600" : "text-rose-500"}`}>
                       {m.trend >= 0 ? "▲" : "▼"} {Math.abs(m.trend)}
                     </td>
-                    <td className="px-3 py-2 text-slate-300">{m.ndvi.toFixed(2)}</td>
-                    <td className="px-3 py-2 text-slate-300">{m.water}</td>
-                    <td className="px-3 py-2 text-slate-300">{m.interventions}</td>
+                    <td className="px-3 py-2 text-slate-600">{m.ndvi.toFixed(2)}</td>
+                    <td className="px-3 py-2 text-slate-600">{m.water}</td>
+                    <td className="px-3 py-2 text-slate-600">{m.interventions}</td>
                   </tr>
                 ))}
               </tbody>
@@ -213,11 +213,11 @@ export default function Dashboard() {
                     {u.icon}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="text-[12px] text-slate-100 font-medium truncate">{u.type}</div>
+                    <div className="text-[12px] text-slate-800 font-medium truncate">{u.type}</div>
                     <div className="text-[10px] text-slate-500">{u.mws} · {u.when}</div>
                   </div>
                   <div className="text-right">
-                    <div className="text-[11px] font-semibold text-slate-200">{Math.round(u.confidence * 100)}%</div>
+                    <div className="text-[11px] font-semibold text-slate-700">{Math.round(u.confidence * 100)}%</div>
                     <StatusPill status={u.status} />
                   </div>
                 </div>
@@ -231,10 +231,10 @@ export default function Dashboard() {
               {jobs.map((j) => (
                 <div key={j.id}>
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-[11px] text-slate-300 truncate pr-2">{j.type}</span>
+                    <span className="text-[11px] text-slate-600 truncate pr-2">{j.type}</span>
                     <StatusPill status={j.status} />
                   </div>
-                  <div className="h-1.5 rounded-full bg-ink-800 overflow-hidden">
+                  <div className="h-1.5 rounded-full bg-slate-200 overflow-hidden">
                     <div className={`h-full rounded-full ${j.status === "completed" ? "bg-brand-500" : j.status === "running" ? "bg-aqua-500" : "bg-slate-600"}`} style={{ width: `${j.pct}%` }} />
                   </div>
                   <div className="text-[10px] text-slate-500 mt-0.5 font-mono">{j.id} · {j.ts}</div>
@@ -245,7 +245,7 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <p className="text-[10px] text-slate-500 leading-relaxed border-t border-white/[0.06] pt-4">
+      <p className="text-[10px] text-slate-500 leading-relaxed border-t border-slate-200 pt-4">
         <span className="font-semibold text-slate-400">Provenance:</span> {provenance.imagery} · {provenance.dem} · cloud {provenance.cloudThreshold}. {provenance.note}
       </p>
     </div>

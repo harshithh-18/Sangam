@@ -9,26 +9,24 @@ const NAV = [
   { id: "reports", label: "Reports & Export", icon: "▤" },
 ];
 
-export default function Sidebar({ view, setView }) {
+export default function Sidebar({ view, setView, onHome }) {
   return (
-    <aside className="w-[240px] shrink-0 glass-strong border-r border-white/[0.08] flex flex-col">
-      <div className="px-5 py-5 border-b border-white/[0.08]">
-        <div className="flex items-center gap-3">
-          <img
-            src="/brand/logo-mark.png"
-            alt="Sangam"
-            className="h-11 w-11 object-contain drop-shadow-[0_4px_12px_rgba(26,146,164,0.5)] animate-float"
-          />
-          <div>
-            <div className="text-[20px] font-extrabold text-white leading-none tracking-tight">
-              Sangam
-            </div>
-            <div className="text-[9px] text-teal-300/90 tracking-[0.18em] mt-1">
-              WATERSHED GEO-INTELLIGENCE
-            </div>
+    <aside className="w-[240px] shrink-0 bg-white border-r border-slate-200 flex flex-col">
+      <button
+        onClick={onHome}
+        title="Back to home"
+        className="px-5 py-5 border-b border-slate-200 flex items-center gap-3 hover:bg-slate-50 transition text-left"
+      >
+        <img src="/brand/logo-mark.png" alt="Sangam" className="h-10 w-10 object-contain" />
+        <div>
+          <div className="text-[19px] font-extrabold text-slate-900 leading-none tracking-tight">
+            Sangam
+          </div>
+          <div className="text-[9px] text-teal-600 tracking-[0.16em] mt-1">
+            WATERSHED GEO-INTELLIGENCE
           </div>
         </div>
-      </div>
+      </button>
 
       <nav className="flex-1 px-3 py-4 space-y-1">
         {NAV.map((n) => {
@@ -37,13 +35,13 @@ export default function Sidebar({ view, setView }) {
             <button
               key={n.id}
               onClick={() => setView(n.id)}
-              className={`nav-link ${active ? "active" : ""} w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium border ${
+              className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium border transition ${
                 active
-                  ? "bg-white/[0.07] text-white border-white/[0.1]"
-                  : "text-slate-300/80 hover:text-white hover:bg-white/[0.04] border-transparent"
+                  ? "bg-teal-50 text-teal-700 border-teal-200"
+                  : "text-slate-600 hover:text-slate-900 hover:bg-slate-50 border-transparent"
               }`}
             >
-              <span className={`text-base ${active ? "text-teal-300" : "text-slate-400"}`}>
+              <span className={`text-base ${active ? "text-teal-600" : "text-slate-400"}`}>
                 {n.icon}
               </span>
               {n.label}
@@ -52,18 +50,18 @@ export default function Sidebar({ view, setView }) {
         })}
       </nav>
 
-      <div className="px-4 py-4 border-t border-white/[0.08]">
-        <div className="rounded-xl glass p-3">
-          <div className="text-[10px] font-semibold text-teal-300/80 tracking-wide mb-1">
+      <div className="px-4 py-4 border-t border-slate-200">
+        <div className="rounded-xl bg-slate-50 border border-slate-200 p-3">
+          <div className="text-[10px] font-semibold text-teal-600 tracking-wide mb-1">
             ACTIVE PILOT
           </div>
-          <div className="text-[13px] font-semibold text-white leading-snug">{PILOT.name}</div>
-          <div className="text-[11px] text-slate-300/70 mt-0.5">
+          <div className="text-[13px] font-semibold text-slate-800 leading-snug">{PILOT.name}</div>
+          <div className="text-[11px] text-slate-500 mt-0.5">
             {PILOT.block}, {PILOT.district} · {PILOT.state}
           </div>
-          <div className="text-[10px] text-slate-400/70 mt-1.5 font-mono">{PILOT.code}</div>
+          <div className="text-[10px] text-slate-400 mt-1.5 font-mono">{PILOT.code}</div>
         </div>
-        <div className="text-[10px] text-slate-400/60 mt-3 px-1">
+        <div className="text-[10px] text-slate-400 mt-3 px-1">
           SIH · PS15 Watershed Analysis · Phase-1
         </div>
       </div>

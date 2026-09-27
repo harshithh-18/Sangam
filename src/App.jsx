@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Landing from "./components/Landing";
 import Sidebar from "./components/Sidebar";
 import TopBar from "./components/TopBar";
 import Dashboard from "./components/Dashboard";
@@ -8,13 +9,17 @@ import Interventions from "./components/Interventions";
 import Reports from "./components/Reports";
 
 export default function App() {
-  const [view, setView] = useState("dashboard");
+  const [view, setView] = useState("landing");
+
+  if (view === "landing") {
+    return <Landing onEnter={setView} />;
+  }
 
   return (
-    <div className="app-bg flex h-screen overflow-hidden">
-      <Sidebar view={view} setView={setView} />
+    <div className="flex h-screen overflow-hidden bg-[#eef3f8]">
+      <Sidebar view={view} setView={setView} onHome={() => setView("landing")} />
       <div className="flex-1 flex flex-col min-w-0">
-        <TopBar view={view} />
+        <TopBar view={view} onHome={() => setView("landing")} />
         <main key={view} className="flex-1 overflow-y-auto animate-fade-in">
           {view === "dashboard" && <Dashboard />}
           {view === "map" && <MapExplorer />}

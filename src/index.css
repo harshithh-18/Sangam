@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html,
@@ -14,102 +14,59 @@ body,
 
 body {
   margin: 0;
-  color: #e9f2fb;
+  color: #1f2d3d;
   font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
-  background: #07162a;
+  background: #eef3f8;
 }
 
-/* ── Sangam ambient background: fixed alpine-wetland photo + navy wash ── */
-.app-bg::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  background-image: url("/brand/bg.jpg");
-  background-size: cover;
-  background-position: center;
-  transform: scale(1.02);
+/* ── Clean light card system (no glass) ── */
+.card {
+  background: #ffffff;
+  border: 1px solid #e5eaf0;
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 1px 3px rgba(16, 24, 40, 0.08);
 }
-.app-bg::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background:
-    radial-gradient(1200px 700px at 15% -10%, rgba(35, 121, 196, 0.28), transparent 60%),
-    radial-gradient(1100px 700px at 100% 110%, rgba(26, 146, 164, 0.30), transparent 55%),
-    linear-gradient(180deg, rgba(7, 22, 42, 0.82) 0%, rgba(7, 22, 42, 0.9) 45%, rgba(6, 18, 34, 0.94) 100%);
+.card-hover {
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+.card-hover:hover {
+  box-shadow: 0 10px 28px rgba(16, 24, 40, 0.12);
+  border-color: #d3dbe4;
+  transform: translateY(-2px);
 }
 
-/* ── Glassmorphism ── */
-.glass {
-  background: rgba(9, 24, 44, 0.62);
-  backdrop-filter: blur(16px) saturate(140%);
-  -webkit-backdrop-filter: blur(16px) saturate(140%);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-}
-.glass-strong {
-  background: rgba(8, 21, 40, 0.82);
-  backdrop-filter: blur(20px) saturate(150%);
-  -webkit-backdrop-filter: blur(20px) saturate(150%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-.glass-hover {
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease;
-}
-.glass-hover:hover {
-  transform: translateY(-3px);
-  border-color: rgba(63, 178, 193, 0.4);
-  box-shadow: 0 0 0 1px rgba(63, 178, 193, 0.25), 0 18px 50px rgba(26, 146, 164, 0.28);
-}
-
-/* ── Scroll-reveal (paired with useReveal hook) ── */
-.reveal {
-  opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, transform;
-}
-.reveal.is-visible {
-  opacity: 1;
-  transform: none;
-}
-
-/* ── Leaflet theming (Sangam navy) ── */
+/* ── Leaflet light theming ── */
 .leaflet-container {
-  background: #081a30;
+  background: #dfe7ee;
   font-family: "Inter", sans-serif;
 }
 .leaflet-control-attribution {
-  background: rgba(8, 21, 40, 0.75) !important;
-  color: #6f88a8 !important;
+  background: rgba(255, 255, 255, 0.85) !important;
+  color: #6b7a89 !important;
 }
 .leaflet-control-attribution a {
-  color: #7cc0ec !important;
+  color: #1a92a4 !important;
 }
 .leaflet-bar a {
-  background: rgba(9, 24, 44, 0.85) !important;
-  color: #d5e6f7 !important;
-  border-color: rgba(255, 255, 255, 0.12) !important;
-  backdrop-filter: blur(8px);
+  background: #ffffff !important;
+  color: #34455a !important;
+  border-color: #e5eaf0 !important;
 }
 .leaflet-bar a:hover {
   background: #1a92a4 !important;
+  color: #ffffff !important;
 }
 .leaflet-popup-content-wrapper {
-  background: rgba(9, 24, 44, 0.92);
-  color: #e9f2fb;
-  border: 1px solid rgba(63, 178, 193, 0.3);
+  background: #ffffff;
+  color: #1f2d3d;
+  border: 1px solid #e5eaf0;
   border-radius: 14px;
-  box-shadow: 0 14px 50px rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 40px rgba(16, 24, 40, 0.18);
 }
 .leaflet-popup-tip {
-  background: rgba(9, 24, 44, 0.92);
-  border: 1px solid rgba(63, 178, 193, 0.3);
+  background: #ffffff;
+  border: 1px solid #e5eaf0;
 }
 .leaflet-popup-content {
   margin: 0;
@@ -121,30 +78,29 @@ body {
   display: grid;
   place-items: center;
   border-radius: 999px;
-  border: 2px solid rgba(255, 255, 255, 0.95);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(16, 24, 40, 0.35);
   font-size: 13px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.15s ease;
 }
 .iv-marker:hover {
-  transform: scale(1.18);
-  box-shadow: 0 4px 16px rgba(26, 146, 164, 0.6);
+  transform: scale(1.15);
 }
 
 /* scrollbars */
 ::-webkit-scrollbar {
-  width: 9px;
-  height: 9px;
+  width: 10px;
+  height: 10px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(63, 178, 193, 0.35);
-  border-radius: 9px;
+  background: #c6d0da;
+  border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(63, 178, 193, 0.6);
+  background: #a7b4c1;
 }
 
 .range-slider {
@@ -162,38 +118,26 @@ body {
   background: #ffffff;
   border: 3px solid #ea8b1f;
   cursor: pointer;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-  transition: transform 0.15s ease;
-}
-.range-slider::-webkit-slider-thumb:hover {
-  transform: scale(1.15);
+  box-shadow: 0 2px 6px rgba(16, 24, 40, 0.3);
 }
 
 @keyframes pulse-ring {
-  0% { box-shadow: 0 0 0 0 rgba(234, 139, 31, 0.55); }
-  70% { box-shadow: 0 0 0 9px rgba(234, 139, 31, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(234, 139, 31, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(55, 168, 84, 0.5); }
+  70% { box-shadow: 0 0 0 8px rgba(55, 168, 84, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(55, 168, 84, 0); }
 }
 .live-dot { animation: pulse-ring 2s infinite; }
 
-/* nav link hover sweep */
-.nav-link {
+/* ── Landing hero background (brighter, no glass) ── */
+.hero-bg {
   position: relative;
-  transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease;
-}
-.nav-link::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 8px;
-  bottom: 8px;
-  width: 3px;
-  border-radius: 3px;
-  background: linear-gradient(180deg, #2379c4, #37a854);
-  transform: scaleY(0);
-  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.nav-link.active::before,
-.nav-link:hover::before {
-  transform: scaleY(1);
+  background-image: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.30) 0%,
+      rgba(255, 255, 255, 0.10) 40%,
+      rgba(255, 255, 255, 0.55) 100%
+    ),
+    url("/brand/bg.jpg");
+  background-size: cover;
+  background-position: center 40%;
 }

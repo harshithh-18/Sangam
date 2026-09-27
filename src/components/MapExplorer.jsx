@@ -15,9 +15,9 @@ const BASES = {
     url: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
     attribution: "Tiles © Esri — Source: Esri, Maxar, Earthstar Geographics",
   },
-  dark: {
-    label: "Dark",
-    url: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+  light: {
+    label: "Light",
+    url: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
     attribution: "© OpenStreetMap contributors © CARTO",
   },
 };
@@ -46,12 +46,12 @@ function Toggle({ on, onClick, children }) {
       onClick={onClick}
       className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-lg text-[12px] font-medium transition border ${
         on
-          ? "bg-brand-500/15 text-brand-200 border-brand-400/25"
-          : "bg-ink-900/60 text-slate-400 border-white/[0.06] hover:text-slate-200"
+          ? "bg-brand-50 text-brand-700 border-brand-200"
+          : "bg-slate-50 text-slate-400 border-slate-200 hover:text-slate-700"
       }`}
     >
       {children}
-      <span className={`h-3.5 w-3.5 rounded grid place-items-center text-[9px] ${on ? "bg-brand-500 text-white" : "bg-ink-700"}`}>
+      <span className={`h-3.5 w-3.5 rounded grid place-items-center text-[9px] ${on ? "bg-brand-500 text-white" : "bg-slate-300"}`}>
         {on ? "✓" : ""}
       </span>
     </button>
@@ -96,7 +96,7 @@ export default function MapExplorer() {
         {showBoundary && (
           <GeoJSON
             data={boundary}
-            style={{ color: "#eafaf3", weight: 2.5, fill: false, dashArray: "6 4" }}
+            style={{ color: "#147687", weight: 3, fill: false, dashArray: "6 4" }}
           />
         )}
 
@@ -121,7 +121,7 @@ export default function MapExplorer() {
 
       {/* ── Left control panel ── */}
       <div className="absolute top-4 left-4 z-[1000] w-[240px] space-y-3">
-        <div className="rounded-2xl glass-strong shadow-panel p-3">
+        <div className="rounded-2xl bg-white border border-slate-200 shadow-panel p-3">
           <div className="text-[11px] font-semibold text-slate-400 mb-2">BASEMAP</div>
           <div className="flex gap-1.5 mb-3">
             {Object.entries(BASES).map(([k, b]) => (
@@ -129,7 +129,7 @@ export default function MapExplorer() {
                 key={k}
                 onClick={() => setBase(k)}
                 className={`flex-1 px-2 py-1.5 rounded-lg text-[11px] font-medium border ${
-                  base === k ? "bg-aqua-500/15 text-aqua-400 border-aqua-500/30" : "bg-ink-900/60 text-slate-400 border-white/[0.06]"
+                  base === k ? "bg-aqua-50 text-aqua-600 border-aqua-200" : "bg-slate-50 text-slate-400 border-slate-200"
                 }`}
               >
                 {b.label}
@@ -144,7 +144,7 @@ export default function MapExplorer() {
                 key={r.id}
                 onClick={() => setRaster(r.id)}
                 className={`w-full text-left px-2.5 py-1.5 rounded-lg text-[12px] font-medium border ${
-                  raster === r.id ? "bg-brand-500/15 text-brand-200 border-brand-400/25" : "bg-ink-900/60 text-slate-400 border-white/[0.06] hover:text-slate-200"
+                  raster === r.id ? "bg-brand-50 text-brand-700 border-brand-200" : "bg-slate-50 text-slate-400 border-slate-200 hover:text-slate-700"
                 }`}
               >
                 {r.label}
@@ -163,9 +163,9 @@ export default function MapExplorer() {
 
       {/* ── Right legend panel ── */}
       <div className="absolute top-4 right-4 z-[1000] w-[210px]">
-        <div className="rounded-2xl glass-strong shadow-panel p-3.5 space-y-3">
+        <div className="rounded-2xl bg-white border border-slate-200 shadow-panel p-3.5 space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-[11px] font-semibold text-slate-300">LEGEND</span>
+            <span className="text-[11px] font-semibold text-slate-600">LEGEND</span>
             <Badge tone="blue">{EPOCHS[epochIdx].id} · {EPOCHS[epochIdx].label}</Badge>
           </div>
 
@@ -176,12 +176,12 @@ export default function MapExplorer() {
             <Legend title="Land cover" items={LULC_LEGEND.map((l) => ({ label: l.name, color: l.color }))} />
           )}
 
-          <div className="border-t border-white/[0.06] pt-2.5">
+          <div className="border-t border-slate-200 pt-2.5">
             <div className="text-[11px] font-semibold text-slate-400 mb-1.5">Interventions</div>
             <div className="grid grid-cols-1 gap-1">
               <button
                 onClick={() => setTypeFilter(null)}
-                className={`text-left text-[11px] px-1.5 py-0.5 rounded ${!typeFilter ? "text-brand-300 font-semibold" : "text-slate-400"}`}
+                className={`text-left text-[11px] px-1.5 py-0.5 rounded ${!typeFilter ? "text-brand-600 font-semibold" : "text-slate-400"}`}
               >
                 ● All types
               </button>
@@ -189,7 +189,7 @@ export default function MapExplorer() {
                 <button
                   key={k}
                   onClick={() => setTypeFilter(typeFilter === k ? null : k)}
-                  className={`flex items-center gap-1.5 text-[11px] px-1.5 py-0.5 rounded ${typeFilter === k ? "bg-white/[0.06] text-slate-100" : "text-slate-300"}`}
+                  className={`flex items-center gap-1.5 text-[11px] px-1.5 py-0.5 rounded ${typeFilter === k ? "bg-slate-100 text-slate-800" : "text-slate-600"}`}
                 >
                   <span className="h-2.5 w-2.5 rounded-full" style={{ background: m.color }} />
                   {m.label}
@@ -202,10 +202,10 @@ export default function MapExplorer() {
 
       {/* ── Bottom time slider ── */}
       <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-[1000] w-[560px] max-w-[calc(100%-32px)]">
-        <div className="rounded-2xl glass-strong shadow-panel px-4 py-3">
+        <div className="rounded-2xl bg-white border border-slate-200 shadow-panel px-4 py-3">
           <div className="flex items-center justify-between mb-2">
             <span className="text-[11px] font-semibold text-slate-400">TEMPORAL SLIDER · T0–T5</span>
-            <span className="text-[11px] text-slate-300">
+            <span className="text-[11px] text-slate-600">
               {EPOCHS[epochIdx].season} · cloud {EPOCHS[epochIdx].cloud}%
             </span>
           </div>
@@ -222,7 +222,7 @@ export default function MapExplorer() {
               <button
                 key={e.id}
                 onClick={() => setEpochIdx(i)}
-                className={`text-[10px] font-medium ${i === epochIdx ? "text-brand-300" : "text-slate-500"}`}
+                className={`text-[10px] font-medium ${i === epochIdx ? "text-brand-600" : "text-slate-500"}`}
               >
                 {e.id}
                 <div className="text-[9px]">{e.label}</div>
@@ -244,7 +244,7 @@ function IvPopup({ iv }) {
       </div>
       <div className="p-3 space-y-2">
         <div className="flex items-center justify-between">
-          <span className="text-[13px] font-bold text-slate-50">{meta.label}</span>
+          <span className="text-[13px] font-bold text-slate-900">{meta.label}</span>
           <span className="text-[10px] font-mono text-slate-400">{iv.id}</span>
         </div>
         <div className="grid grid-cols-2 gap-1.5 text-[11px]">
@@ -255,15 +255,15 @@ function IvPopup({ iv }) {
           <Field k="Captured" v={iv.capturedAt} />
           <Field k="Sub-basin" v={iv.mwsName} />
         </div>
-        <div className="rounded-lg bg-aqua-500/10 border border-aqua-500/20 p-2">
-          <div className="text-[10px] font-semibold text-aqua-400 mb-0.5">SATELLITE EVIDENCE (±{iv.bufferM} m · {iv.windowDays} d)</div>
-          <div className="text-[11px] text-slate-200">
+        <div className="rounded-lg bg-aqua-50 border border-aqua-200 p-2">
+          <div className="text-[10px] font-semibold text-aqua-600 mb-0.5">SATELLITE EVIDENCE (±{iv.bufferM} m · {iv.windowDays} d)</div>
+          <div className="text-[11px] text-slate-700">
             {iv.waterGain > 0.4 ? `Water extent +${iv.waterGain} ha` : `NDVI +${iv.ndviGain}`} near this point
           </div>
         </div>
         <div className="flex items-center justify-between text-[10px] text-slate-500">
           <span>{iv.modelVersion}</span>
-          <span className={`font-medium ${iv.status === "verified" ? "text-brand-300" : iv.status === "flagged" ? "text-rose-300" : "text-amber-300"}`}>
+          <span className={`font-medium ${iv.status === "verified" ? "text-brand-600" : iv.status === "flagged" ? "text-rose-500" : "text-orange-600"}`}>
             {iv.status}
           </span>
         </div>
@@ -276,7 +276,7 @@ function Field({ k, v, accent }) {
   return (
     <div>
       <div className="text-slate-500 text-[10px]">{k}</div>
-      <div className={`font-medium ${accent ? "text-brand-300" : "text-slate-200"}`}>{v}</div>
+      <div className={`font-medium ${accent ? "text-brand-600" : "text-slate-700"}`}>{v}</div>
     </div>
   );
 }

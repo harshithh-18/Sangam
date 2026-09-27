@@ -27,6 +27,10 @@ Build a static bundle: `npm run build` (output in `dist/`), preview with `npm ru
 | **Interventions** | Searchable/filterable field-photo gallery with AI classification, agreement check, and satellite-evidence linkage. |
 | **Reports & Export** | Institutional PDF report preview + PDF/GeoTIFF/GeoJSON/CSV export options and provenance manifest. |
 
+The app opens on a **professional landing page** (light theme, brand navigation);
+click any module or "Open Platform" to enter the workspace. The sidebar logo / TopBar
+"Home" returns to the landing page.
+
 ## Screenshot tips for the PPT
 
 - Use a maximized browser window (≥1440px wide) for the intended desktop layout.

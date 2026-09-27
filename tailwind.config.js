@@ -7,16 +7,7 @@ export default {
         sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       colors: {
-        // ── Sangam palette (from the logo) ──
-        // `ink`  = navy surfaces, `brand` = logo green, `aqua` = logo blue.
-        ink: {
-          950: "#07162a",
-          900: "#0b1f38",
-          850: "#0f2846",
-          800: "#143154",
-          700: "#1c3f68",
-          600: "#27547f",
-        },
+        // ── Sangam palette (from the logo) — used as accents on light surfaces ──
         brand: {
           50: "#eafaf1",
           100: "#cbeed7",
@@ -30,18 +21,28 @@ export default {
           900: "#184b28",
         },
         aqua: {
+          50: "#eaf4fb",
+          100: "#cfe6f6",
+          200: "#a6d0ee",
           300: "#7cc0ec",
           400: "#4a9bd8",
           500: "#2379c4",
           600: "#1c62a3",
+          700: "#184f83",
         },
         teal: {
+          50: "#e7f6f8",
+          100: "#c4e9ed",
+          200: "#96d6de",
           300: "#7fd3dd",
           400: "#3fb2c1",
           500: "#1a92a4",
           600: "#147687",
+          700: "#105f6d",
         },
         orange: {
+          50: "#fdf1e2",
+          100: "#f9dcbb",
           300: "#f6bd77",
           400: "#f0a23f",
           500: "#ea8b1f",
@@ -49,29 +50,20 @@ export default {
         },
       },
       boxShadow: {
-        panel: "0 12px 44px rgba(4, 14, 26, 0.5)",
-        card: "0 2px 6px rgba(4,14,26,0.28), 0 14px 38px rgba(4,14,26,0.34)",
-        glow: "0 0 0 1px rgba(63, 178, 193, 0.30), 0 14px 44px rgba(26, 146, 164, 0.28)",
+        card: "0 1px 2px rgba(16,24,40,0.05), 0 1px 3px rgba(16,24,40,0.10)",
+        lift: "0 10px 28px rgba(16,24,40,0.12)",
+        panel: "0 6px 24px rgba(16,24,40,0.10)",
       },
       keyframes: {
         "fade-up": {
-          "0%": { opacity: "0", transform: "translateY(18px)" },
+          "0%": { opacity: "0", transform: "translateY(14px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "fade-in": { "0%": { opacity: "0" }, "100%": { opacity: "1" } },
-        float: {
-          "0%,100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-5px)" },
-        },
-        shimmer: {
-          "0%": { backgroundPosition: "-200% 0" },
-          "100%": { backgroundPosition: "200% 0" },
-        },
       },
       animation: {
-        "fade-up": "fade-up 0.6s cubic-bezier(0.22,1,0.36,1) both",
-        "fade-in": "fade-in 0.8s ease both",
-        float: "float 4s ease-in-out infinite",
+        "fade-up": "fade-up 0.5s cubic-bezier(0.22,1,0.36,1) both",
+        "fade-in": "fade-in 0.5s ease both",
       },
     },
   },

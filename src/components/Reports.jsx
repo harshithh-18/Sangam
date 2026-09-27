@@ -18,15 +18,15 @@ export default function Reports() {
           <SectionTitle title="Generate & Export" sub="Reproducible, provenance-stamped" />
           <div className="space-y-3">
             {EXPORTS.map((e) => (
-              <div key={e.fmt} className="rounded-xl border border-white/[0.06] bg-ink-950/50 p-3 flex gap-3">
-                <div className="h-10 w-10 rounded-xl grid place-items-center text-lg shrink-0 bg-white/[0.04]">{e.icon}</div>
+              <div key={e.fmt} className="rounded-xl border border-slate-200 bg-slate-50 p-3 flex gap-3">
+                <div className="h-10 w-10 rounded-xl grid place-items-center text-lg shrink-0 bg-slate-100">{e.icon}</div>
                 <div className="flex-1">
                   <div className="flex items-center gap-2">
-                    <span className="text-[13px] font-semibold text-slate-100">{e.label}</span>
+                    <span className="text-[13px] font-semibold text-slate-800">{e.label}</span>
                     <Badge tone={e.tone}>{e.fmt}</Badge>
                   </div>
                   <p className="text-[10px] text-slate-500 mt-0.5 leading-relaxed">{e.desc}</p>
-                  <button className="mt-2 text-[11px] font-semibold text-brand-300 hover:text-brand-200">Download →</button>
+                  <button className="mt-2 text-[11px] font-semibold text-brand-600 hover:text-brand-700">Download →</button>
                 </div>
               </div>
             ))}
@@ -44,9 +44,9 @@ export default function Reports() {
               ["Cloud threshold", provenance.cloudThreshold],
               ["CRS (metric)", PILOT.crs_metric],
             ].map(([k, v]) => (
-              <div key={k} className="flex justify-between gap-3 border-b border-white/[0.04] pb-1.5">
+              <div key={k} className="flex justify-between gap-3 border-b border-slate-100 pb-1.5">
                 <dt className="text-slate-500 shrink-0">{k}</dt>
-                <dd className="text-slate-300 text-right">{v}</dd>
+                <dd className="text-slate-600 text-right">{v}</dd>
               </div>
             ))}
           </dl>
@@ -55,7 +55,7 @@ export default function Reports() {
 
       {/* Report preview (A4-ish) */}
       <Card className="xl:col-span-2" pad={false}>
-        <div className="p-5 border-b border-white/[0.06] flex items-center justify-between">
+        <div className="p-5 border-b border-slate-200 flex items-center justify-between">
           <SectionTitle title="Report Preview" sub="Watershed status report — auto-generated" />
           <div className="flex gap-2">
             <Badge tone="green">v2025.02</Badge>

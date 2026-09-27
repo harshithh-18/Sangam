@@ -34,7 +34,7 @@ function Overlays() {
   const ring = boundary.geometry.coordinates[0].map(([lng, lat]) => proj(lng, lat).join(",")).join(" ");
   return (
     <g>
-      <polygon points={ring} fill="none" stroke="#eafaf3" strokeWidth="2" strokeDasharray="6 4" />
+      <polygon points={ring} fill="none" stroke="#ffffff" strokeWidth="2" strokeDasharray="6 4" />
       {drainage.map((d, i) => (
         <polyline key={i} points={d.path.map(([lng, lat]) => proj(lng, lat).join(",")).join(" ")}
           fill="none" stroke="#4a9bd8" strokeWidth={d.order + 0.5} opacity="0.8" />
@@ -92,7 +92,7 @@ export default function ChangeDetection() {
 
   const changeBars = [
     { name: "Veg. gain", ha: stats.gainHa, color: "#0f9d6a" },
-    { name: "No change", ha: stats.stableHa, color: "#27547f" },
+    { name: "No change", ha: stats.stableHa, color: "#cbd5e1" },
     { name: "Veg. loss", ha: stats.lossHa, color: "#c1121f" },
   ];
 
@@ -114,8 +114,8 @@ export default function ChangeDetection() {
         </div>
         <div
           ref={wrapRef}
-          className="relative select-none mx-5 mb-4 rounded-xl overflow-hidden border border-white/[0.08]"
-          style={{ aspectRatio: `${W}/${H}`, background: "#081a30" }}
+          className="relative select-none mx-5 mb-4 rounded-xl overflow-hidden border border-slate-200"
+          style={{ aspectRatio: `${W}/${H}`, background: "#e8eef4" }}
         >
           <svg viewBox={`0 0 ${W} ${H}`} className="absolute inset-0 h-full w-full">
             <defs>
@@ -128,12 +128,12 @@ export default function ChangeDetection() {
             {/* after clipped to right of handle */}
             <GridSvg mode="after" clipId="rightClip" />
             <Overlays />
-            <line x1={split * W} y1="0" x2={split * W} y2={H} stroke="#eafaf3" strokeWidth="2" />
+            <line x1={split * W} y1="0" x2={split * W} y2={H} stroke="#ffffff" strokeWidth="2" />
           </svg>
 
           {/* Labels */}
-          <div className="absolute top-2 left-2 px-2 py-1 rounded-md bg-ink-950/80 text-[11px] font-semibold text-slate-200">T0 · 2021</div>
-          <div className="absolute top-2 right-2 px-2 py-1 rounded-md bg-brand-500/25 text-[11px] font-semibold text-brand-200">T5 · 2025</div>
+          <div className="absolute top-2 left-2 px-2 py-1 rounded-md bg-white text-[11px] font-semibold text-slate-700">T0 · 2021</div>
+          <div className="absolute top-2 right-2 px-2 py-1 rounded-md bg-brand-500/25 text-[11px] font-semibold text-brand-700">T5 · 2025</div>
 
           {/* Handle */}
           <div
@@ -142,7 +142,7 @@ export default function ChangeDetection() {
             onMouseDown={startDrag}
             onTouchStart={startDrag}
           >
-            <div className="h-9 w-9 rounded-full bg-white grid place-items-center text-ink-900 shadow-panel text-sm font-bold">
+            <div className="h-9 w-9 rounded-full bg-white grid place-items-center text-teal-600 shadow-panel text-sm font-bold border border-slate-200">
               ⇄
             </div>
           </div>
@@ -157,26 +157,26 @@ export default function ChangeDetection() {
         <Card>
           <SectionTitle title="Change Summary" sub="Index differencing · thr ±0.08" right={<Badge tone="green">QA ✓</Badge>} />
           <div className="grid grid-cols-3 gap-2 mb-4">
-            <div className="rounded-xl bg-brand-500/10 border border-brand-400/20 p-2.5 text-center">
-              <div className="text-lg font-bold text-brand-300">+{stats.gainHa}</div>
+            <div className="rounded-xl bg-brand-50 border border-brand-400/20 p-2.5 text-center">
+              <div className="text-lg font-bold text-brand-600">+{stats.gainHa}</div>
               <div className="text-[10px] text-slate-400">ha greening</div>
             </div>
-            <div className="rounded-xl bg-slate-500/10 border border-slate-400/20 p-2.5 text-center">
-              <div className="text-lg font-bold text-slate-300">{stats.stableHa}</div>
+            <div className="rounded-xl bg-slate-100 border border-slate-200 p-2.5 text-center">
+              <div className="text-lg font-bold text-slate-600">{stats.stableHa}</div>
               <div className="text-[10px] text-slate-400">ha stable</div>
             </div>
-            <div className="rounded-xl bg-rose-500/10 border border-rose-400/20 p-2.5 text-center">
-              <div className="text-lg font-bold text-rose-300">−{stats.lossHa}</div>
+            <div className="rounded-xl bg-rose-50 border border-rose-200 p-2.5 text-center">
+              <div className="text-lg font-bold text-rose-500">−{stats.lossHa}</div>
               <div className="text-[10px] text-slate-400">ha loss</div>
             </div>
           </div>
           <div className="h-[130px]">
             <ResponsiveContainer>
               <BarChart data={changeBars} layout="vertical" margin={{ left: 8, right: 12, top: 0, bottom: 0 }}>
-                <CartesianGrid stroke="#1c2b45" horizontal={false} />
-                <XAxis type="number" stroke="#5b6b82" fontSize={11} tickLine={false} axisLine={false} />
-                <YAxis type="category" dataKey="name" stroke="#5b6b82" fontSize={11} width={70} tickLine={false} axisLine={false} />
-                <Tooltip cursor={{ fill: "rgba(255,255,255,0.03)" }} contentStyle={{ background: "#0a1220", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 8, fontSize: 12 }} />
+                <CartesianGrid stroke="#e2e8f0" horizontal={false} />
+                <XAxis type="number" stroke="#94a3b8" fontSize={11} tickLine={false} axisLine={false} />
+                <YAxis type="category" dataKey="name" stroke="#94a3b8" fontSize={11} width={70} tickLine={false} axisLine={false} />
+                <Tooltip cursor={{ fill: "rgba(15,23,42,0.04)" }} contentStyle={{ background: "#ffffff", border: "1px solid #e5eaf0", borderRadius: 8, fontSize: 12, color: "#1f2d3d" }} />
                 <Bar dataKey="ha" radius={[0, 4, 4, 0]}>
                   {changeBars.map((b) => <Cell key={b.name} fill={b.color} />)}
                 </Bar>
@@ -191,9 +191,9 @@ export default function ChangeDetection() {
             {matrix.map((m, i) => (
               <div key={i} className="flex items-center gap-2 text-[12px]">
                 <span className="text-slate-400 w-[78px] truncate">{m.from}</span>
-                <span className={m.dir === "gain" ? "text-brand-400" : "text-rose-400"}>→</span>
-                <span className="text-slate-200 flex-1 truncate">{m.to}</span>
-                <span className={`font-semibold ${m.dir === "gain" ? "text-brand-300" : "text-rose-300"}`}>
+                <span className={m.dir === "gain" ? "text-brand-600" : "text-rose-500"}>→</span>
+                <span className="text-slate-700 flex-1 truncate">{m.to}</span>
+                <span className={`font-semibold ${m.dir === "gain" ? "text-brand-600" : "text-rose-500"}`}>
                   {m.dir === "gain" ? "+" : "−"}{m.ha} ha
                 </span>
               </div>
@@ -207,9 +207,9 @@ export default function ChangeDetection() {
             <li>✓ Seasons matched (post-monsoon → rabi both low-cloud)</li>
             <li>✓ Cloud/shadow masked, scenes co-registered (RMSE 0.4 px)</li>
             <li>✓ Threshold ±0.08 calibrated on stable reference plots</li>
-            <li className="text-amber-300/90">⚠ Seasonal variation is not automatically intervention impact</li>
+            <li className="text-orange-600">⚠ Seasonal variation is not automatically intervention impact</li>
           </ul>
-          <p className="text-[10px] text-slate-500 mt-3 border-t border-white/[0.06] pt-2">{provenance.imagery}</p>
+          <p className="text-[10px] text-slate-500 mt-3 border-t border-slate-200 pt-2">{provenance.imagery}</p>
         </Card>
       </div>
     </div>
