@@ -12,7 +12,7 @@ screenshotted as the real product for the SIH pitch deck.
 
 ```bash
 npm install      # first time only
-npm run dev      # → http://localhost:5173
+npm run dev      # → http://localhost:5180
 ```
 
 Build a static bundle: `npm run build` (output in `dist/`), preview with `npm run preview`.

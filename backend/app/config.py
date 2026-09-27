@@ -29,7 +29,7 @@ class Settings(BaseSettings):
     storage_dir: str = "/data/storage"
 
     # ── CORS ──
-    cors_origins: str = "http://localhost:5173,http://127.0.0.1:5173"
+    cors_origins: str = "http://localhost:5180,http://127.0.0.1:5180"
 
     # ── Geospatial defaults (see PROJECT_CONTEXT.md §9) ──
     metric_crs: str = "EPSG:32643"  # UTM 43N — never compute area/distance in degrees
